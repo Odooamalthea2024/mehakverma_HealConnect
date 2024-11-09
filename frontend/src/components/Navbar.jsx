@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const { language, setLanguage } = useContext(LanguageContext);
@@ -19,7 +20,7 @@ const Navbar = () => {
         <a href="/chatbot" className="hover:text-[#006953]">Chatbot</a>
         <a href="/planner" className="hover:text-[#006953]">Planner</a>
         <a href="/community" className="hover:text-[#006953]">Community</a>
-        <a href="/virtual-health-camp" className="hover:text-[#006953]">DocDial</a>
+        <a href="/calendar" className="hover:text-[#006953]">DocDial</a>
         <a href="/interactive-healing" className="hover:text-[#006953]">Comfort Cloud</a>
         <a href="/login-signup" className="hover:text-[#006953]">Login / Signup</a>
       </div>
@@ -37,6 +38,7 @@ const Navbar = () => {
           <option value="mr">Marathi</option>
         </select>
       </div>
+      
     </nav>
   );
 };
