@@ -106,7 +106,12 @@ export default function Calendar() {
                 day ? "hover:bg-gray-200" : "bg-transparent"
               }`}
               style={{
-                color: day ? '#006953' : '',
+                color:
+                  selectedDate?.day === day &&
+                  selectedDate.month === month &&
+                  selectedDate.year === year
+                    ? '#ffffff'
+                    : '#006953',
                 borderColor: '#A9C7B8',
                 backgroundColor:
                   selectedDate?.day === day &&
@@ -116,12 +121,6 @@ export default function Calendar() {
                     : day
                     ? '#f7f6f2'
                     : 'transparent',
-                color:
-                  selectedDate?.day === day &&
-                  selectedDate.month === month &&
-                  selectedDate.year === year
-                    ? '#ffffff'
-                    : '#006953',
               }}
             >
               {day}

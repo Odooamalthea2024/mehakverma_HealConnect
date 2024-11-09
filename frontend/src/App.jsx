@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Calendar from './components/Calender';
 import Part3 from './components/part3';
 import Mood from './components/mood';
+import HealConnectPage from './components/healconnect';
+import ChatBot from './components/ChatBot';
 
 function App() {
   return (
@@ -27,6 +29,9 @@ function App() {
               <Part3/>
             </>} />
             <Route path="/calendar" element={<Calendar />} />
+            <Route path="/chatbot" element={<HealConnectPage />} />
+            {/* <Route path="/chat"element={<ChatBot chatBot={chatBot} setChatBot={setChatBot}/>} /> */}
+            <Route path="/chat" element = {<ChatBot/>}/>
           </Routes>
         </div>
       </Router>
