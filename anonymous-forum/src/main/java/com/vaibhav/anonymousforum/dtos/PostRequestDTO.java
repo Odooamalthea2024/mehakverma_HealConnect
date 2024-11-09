@@ -1,17 +1,28 @@
 package com.vaibhav.anonymousforum.dtos;
 
-import com.vaibhav.anonymousforum.entities.User;
-
-public class UserRequestDTO {
+public class PostRequestDTO {
     private String username;
     private String password;
+    private String title;
+    private String content;
 
-    public UserRequestDTO() {
+    public PostRequestDTO() {
     }
 
-    public UserRequestDTO(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getUsername() {

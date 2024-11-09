@@ -3,15 +3,16 @@ package com.vaibhav.anonymousforum.controllers;
 import com.vaibhav.anonymousforum.dtos.CommentDTO;
 import com.vaibhav.anonymousforum.dtos.CommentRequestDTO;
 import com.vaibhav.anonymousforum.dtos.PostDTO;
-import com.vaibhav.anonymousforum.entities.Comment;
+import com.vaibhav.anonymousforum.dtos.PostRequestDTO;
 import com.vaibhav.anonymousforum.entities.Post;
 import com.vaibhav.anonymousforum.entities.User;
 import com.vaibhav.anonymousforum.repositories.CommentRepository;
 import com.vaibhav.anonymousforum.repositories.PostRepository;
 import com.vaibhav.anonymousforum.repositories.UserRepository;
+import com.vaibhav.anonymousforum.services.CommentService;
 import com.vaibhav.anonymousforum.services.PostService;
+import com.vaibhav.anonymousforum.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +28,9 @@ public class PostController {
     private PostService postService;
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     private PostRepository postRepository;
 
     @Autowired
@@ -34,6 +38,8 @@ public class PostController {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private CommentService commentService;
 
     // Get all posts
     @GetMapping
@@ -48,34 +54,34 @@ public class PostController {
         return post != null ? ResponseEntity.ok(post) : ResponseEntity.notFound().build();
     }
 
-    // Create a new post
     @PostMapping
-    public ResponseEntity<PostDTO> createPost(@RequestBody Post post) {
-        PostDTO createdPost = postService.createPost(post);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdPost);
+    public ResponseEntity<?> createPost(@RequestBody PostRequestDTO postRequestDTO) {
+        boolean isAuthenticated = userService.verifyUser(postRequestDTO.getUsername(), postRequestDTO.getPassword());
+        if (!isAuthenticated) {
+            return ResponseEntity.status(401).body("Authentication failed. Invalid user ID or password.");
+        }
+
+        PostDTO postDTO = new PostDTO(postService.createPost(postRequestDTO));
+        return ResponseEntity.ok(postDTO);
     }
 
     @PostMapping("/{id}/comments")
-    public ResponseEntity<CommentDTO> addCommentToPost(@PathVariable Long id, @RequestBody CommentRequestDTO commentRequestDTO) {
+    public ResponseEntity<?> addCommentToPost(@PathVariable Long id, @RequestBody CommentRequestDTO commentRequestDTO) {
         Optional<Post> postOptional = postRepository.findById(id);
-        if (!postOptional.isPresent()) {
+        if (postOptional.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
 
         Post post = postOptional.get();
 
-        // Assume we have a method to get the current user
-        User user = userRepository.findById(commentRequestDTO.getUserId()).orElseThrow(() -> new RuntimeException("User not found"));
+        boolean isAuthenticated = userService.verifyUser(commentRequestDTO.getUsername(), commentRequestDTO.getPassword());
+        if (!isAuthenticated) {
+            return ResponseEntity.status(401).body("Authentication failed. Invalid user ID or password.");
+        }
 
-        // Create and save the new comment
-        Comment comment = new Comment();
-        comment.setContent(commentRequestDTO.getContent());
-        comment.setPost(post);
-        comment.setUser(user);  // Set the user who made the comment
-        comment = commentRepository.save(comment);
+        CommentDTO commentDTO = new CommentDTO(commentService.createComment(commentRequestDTO.getContent(), post,
+                userService.getUserObjByUsername(commentRequestDTO.getUsername())));
 
-        // Convert saved comment to CommentDTO
-        CommentDTO commentDTO = new CommentDTO(comment);
         return ResponseEntity.ok(commentDTO);
     }
 }
