@@ -22,6 +22,8 @@ const Navbar = () => {
         <a href="/community" className="hover:text-[#006953]">Community</a>
         <a href="/calendar" className="hover:text-[#006953]">DocDial</a>
         <a href="/interactive-healing" className="hover:text-[#006953]">Comfort Cloud</a>
+        <a href="/feedback" className="hover:text-[#006953]">Feedback</a>
+
         <a href="/login-signup" className="hover:text-[#006953]">Login / Signup</a>
       </div>
       <div className="flex items-center space-x-4">

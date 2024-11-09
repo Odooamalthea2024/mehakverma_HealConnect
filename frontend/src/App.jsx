@@ -10,6 +10,8 @@ import Part3 from './components/part3';
 import Mood from './components/mood';
 import HealConnectPage from './components/healconnect';
 import ChatBot from './components/ChatBot';
+import Login from './components/Login';
+import FeedbackComponent from './components/feedback';
 
 function App() {
   return (
@@ -32,6 +34,9 @@ function App() {
             <Route path="/chatbot" element={<HealConnectPage />} />
             {/* <Route path="/chat"element={<ChatBot chatBot={chatBot} setChatBot={setChatBot}/>} /> */}
             <Route path="/chat" element = {<ChatBot/>}/>
+            {/* <Route path="/login-signup" element = {<Login/>}/> */}
+            <Route path="/feedback" element = {<FeedbackComponent/>}/>
+
           </Routes>
         </div>
       </Router>
