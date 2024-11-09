@@ -6,6 +6,8 @@ import StatisticsImage from './components/StatisticsImage';
 import Mission from './components/Mission';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Calendar from './components/Calender';
+import Part3 from './components/part3';
+import Mood from './components/mood';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
                 <StatisticsImage />
                 <Mission />
               </section>
+              <Mood/>
+              <Part3/>
             </>} />
             <Route path="/calendar" element={<Calendar />} />
           </Routes>

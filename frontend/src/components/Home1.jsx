@@ -48,6 +48,7 @@ const MentalHealthSupport = () => {
       <div className="w-full bg-[#004c43] py-6 text-center mt-auto">
         <p className="text-white text-xl font-semibold">{quote}</p>
       </div>
+      
     </div>
   );
 };
