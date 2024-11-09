@@ -11,7 +11,7 @@ const Navbar = () => {
 
       {/* Navbar Links */}
       <div className="hidden md:flex space-x-8 text-black">
-        <a href="/symptom-checker" className="hover:text-[#006953]">Symptom Checker</a>
+        <a href="/symptom-checker" className="hover:text-[#006953]">StressTrack</a>
         <a href="/chatbot" className="hover:text-[#006953]">Chatbot</a>
         <a href="/planner" className="hover:text-[#006953]">Planner</a>
         <a href="/community" className="hover:text-[#006953]">Community</a>
