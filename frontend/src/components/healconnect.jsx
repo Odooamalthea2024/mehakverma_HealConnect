@@ -103,7 +103,7 @@ const HealConnectPage = () => {
           </TextContent>
           <ImageWrapper>
             <img
-              src="https://via.placeholder.com/400x300" // Replace with your image URL
+              src="https://www.creativefabrica.com/wp-content/uploads/2023/02/21/Green-robot-chatbot-icon-design-Graphics-61950707-1.jpg" // Replace with your image URL
               alt="Chatbot Illustration"
             />
           </ImageWrapper>

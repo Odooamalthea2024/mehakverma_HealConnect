@@ -19,13 +19,7 @@ const FeedbackComponent = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-96 h-auto bg-[#F7F6F2] rounded-lg p-6 shadow-lg relative text-center">
-        <button 
-          className="absolute top-2 right-2 text-gray-600 text-2xl"
-          onClick={() => alert('Close')}
-        >
-          ×
-        </button>
+      <div className="w-96 h-auto bg-[#F7F6F2] rounded-lg p-6 shadow-lg text-center">
         <h2 className="text-lg font-bold text-gray-800 mb-2">We appreciate your feedback.</h2>
         <p className="text-sm text-gray-600 mb-4">
           We are always looking for ways to improve your experience. Please take a moment to evaluate and tell us what you think.

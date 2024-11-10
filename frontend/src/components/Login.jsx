@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebookF } from "@fortawesome/free-brands-svg-icons";
+import { useNavigate } from "react-router-dom";  // Import useNavigate
 
 const Login = () => {
   const [isActive, setIsActive] = useState(false);
+  const navigate = useNavigate();  // Initialize navigate function
 
   const handleRegisterClick = () => {
     setIsActive(true);
@@ -11,6 +13,11 @@ const Login = () => {
 
   const handleLoginClick = () => {
     setIsActive(false);
+  };
+
+  const handleSignUp = () => {
+    // You can include any sign-up logic here before navigating
+    navigate("/calendar");  // Redirect to /calendar route
   };
 
   return (
@@ -108,6 +115,7 @@ const Login = () => {
             />
             <button
               type="button"
+              onClick={handleSignUp}  // Trigger redirect on sign up
               className="bg-[#006953] text-white py-2 px-8 rounded-lg uppercase font-semibold text-sm tracking-wide hover:bg-green-700 transition-all"
             >
               Sign Up

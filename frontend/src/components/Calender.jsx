@@ -20,6 +20,8 @@ export default function Calendar() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [showDoctorPopup, setShowDoctorPopup] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showPointsPopup, setShowPointsPopup] = useState(false);
+  const [points, setPoints] = useState(240);
 
   useEffect(() => {
     const daysInAMonth = daysInMonth(month + 1, year);
@@ -50,10 +52,16 @@ export default function Calendar() {
 
   const handleBookConsultation = () => {
     if (selectedDoctor && selectedDate) {
-      setShowConfirmation(true);
+      setShowPointsPopup(true);
     } else {
       alert("Please select both a doctor and a date.");
     }
+  };
+
+  const handleConfirmBooking = () => {
+    setPoints(points - 200);
+    setShowPointsPopup(false);
+    setShowConfirmation(true);
   };
 
   return (
@@ -179,6 +187,32 @@ export default function Calendar() {
           </div>
         )}
 
+        {/* Points Deduction Popup */}
+        {showPointsPopup && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
+            <div className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
+              <h2 className="text-2xl font-bold mb-4" style={{ color: '#006953' }}>Points Deduction</h2>
+              <p className="mb-4">Booking this consultation will deduct 200 points from your balance of 440 points. You will have 240 points remaining after this booking. For future consultations, you will need to recharge or pay.</p>
+              <div className="flex justify-center space-x-4">
+                <button
+                  onClick={handleConfirmBooking}
+                  className="bg-primary text-white font-bold py-2 px-4 rounded hover:bg-opacity-80"
+                  style={{ backgroundColor: '#006953' }}
+                >
+                  Confirm
+                </button>
+                <button
+                  onClick={() => setShowPointsPopup(false)}
+                  className="text-primary font-bold underline"
+                  style={{ color: '#A9C7B8' }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Confirmation Popup */}
         {showConfirmation && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
@@ -207,3 +241,4 @@ export default function Calendar() {
     </div>
   );
 }
+  

@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../LanguageContext';
+import { useNavigate } from 'react-router-dom';
 
 const translations = {
   en: {
     title: 'Mental health support for everyone.',
     description: 'Empowering your journey to mental well-being with accessible tools, supportive communities, expert guidance, and personalized resources that help you navigate life\'s challenges, build resilience, and foster a sense of hope and strength.',
     quote: 'Taking care of your mental health is not a luxury, it\'s a necessity. Prioritize your well-being.',
-    button: 'Get started',
+    button: 'Test Your Stress Level',
   },
   hi: {
     title: 'हर किसी के लिए मानसिक स्वास्थ्य सहायता।',
@@ -25,6 +26,11 @@ const translations = {
 const MentalHealthSupport = () => {
   const { language } = useContext(LanguageContext);
   const { title, description, quote, button } = translations[language];
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate('/symptom-checker');
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-[#F7F6F2] p-10 space-y-10">
@@ -32,7 +38,10 @@ const MentalHealthSupport = () => {
         <div className="md:w-1/2 p-10 flex flex-col justify-center text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">{title}</h1>
           <p className="text-gray-600 mb-8 mt-4 leading-relaxed">{description}</p>
-          <button className="bg-[#006953] hover:bg-[#004c43] text-white font-semibold py-3 px-6 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105 mb-16 mt-4">
+          <button
+            onClick={handleButtonClick}
+            className="bg-[#006953] hover:bg-[#004c43] text-white font-semibold py-3 px-6 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105 mb-16 mt-4"
+          >
             {button}
           </button>
         </div>
@@ -48,7 +57,6 @@ const MentalHealthSupport = () => {
       <div className="w-full bg-[#004c43] py-6 text-center mt-auto">
         <p className="text-white text-xl font-semibold">{quote}</p>
       </div>
-      
     </div>
   );
 };

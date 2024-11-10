@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../LanguageContext';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar2 = () => {
   const { language, setLanguage } = useContext(LanguageContext);
 
   const handleLanguageChange = (e) => {
@@ -30,7 +30,7 @@ const Navbar = () => {
       <div className="flex items-center space-x-4">
         <div className="flex items-center text-black">
           
-          <span className="text-lg">240 </span>
+          <span className="text-lg">40 </span>
           <span className="text-xl mr-2">💰</span>
         </div>
       
@@ -42,10 +42,6 @@ const Navbar = () => {
           <option value="en">English</option>
           <option value="hi">Hindi</option>
           <option value="mr">Marathi</option>
-          <option value="hr">Gujrati</option>
-          <option value="pr">Telugu</option>
-         
-
         </select>
       </div>
       
@@ -53,4 +49,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar2;

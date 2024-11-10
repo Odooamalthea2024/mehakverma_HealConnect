@@ -28,13 +28,13 @@ const getResultContent = (stressLevel) => {
       return {
         paragraph: "You are experiencing a high level of stress, which can significantly impact your overall well-being. It is crucial to take immediate action to manage this stress. We strongly recommend consulting a healthcare professional to discuss your symptoms and explore potential treatment options. Our virtual health camp, DocDial, provides an excellent platform for you to connect with medical experts and get the support you need.",
         buttonText: "DocDial",
-        buttonLink: "/docdial" // Replace with actual DocDial link
-      };
+        buttonLink: "/login-signup" // Replace with actual DocDial link
+      };    
     case "Moderately Stressed":
       return {
         paragraph: "You are experiencing a moderate level of stress, which, if left unmanaged, can affect your health and daily life. It is advisable to consult with a healthcare provider to address your stress and prevent it from escalating. Our virtual health camp, DocDial, allows you to connect with medical professionals who can offer guidance and support tailored to your needs.",
         buttonText: "DocDial",
-        buttonLink: "/docdial" // Replace with actual DocDial link
+        buttonLink: "/login-signup" // Replace with actual DocDial link
       };
     case "Slightly Stressed":
       return {
