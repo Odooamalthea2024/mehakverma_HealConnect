@@ -26,10 +26,14 @@ const Navbar = () => {
 
         <a href="/login-signup" className="hover:text-[#006953]">Login / Signup</a>
       </div>
+
       <div className="flex items-center space-x-4">
-        <a href="/join-now" className="bg-[#006953] text-white py-2 px-4 rounded hover:bg-[#3ea494]">
-          Join Now
-        </a>
+        <div className="flex items-center text-black">
+          
+          <span className="text-lg">240 </span>
+          <span className="text-xl mr-2">💰</span>
+        </div>
+      
         <select
           value={language}
           onChange={handleLanguageChange}

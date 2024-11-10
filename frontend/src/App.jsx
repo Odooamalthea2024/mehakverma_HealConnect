@@ -15,6 +15,9 @@ import FeedbackComponent from './components/feedback';
 import MainLayout from './components/MainLayout';
 import Question from './components/Question';
 import Questionnaire from './components/Quetionerrie';
+import Parth from './components/Comfort';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -42,6 +45,11 @@ function App() {
 
             <Route path="/planner" element = {<MainLayout/>}/>
             <Route path="/symptom-checker" element = {<Questionnaire/>}/>
+           
+            <Route path="/login-signup" element = {<Login/>}/>
+            <Route path="/interactive-healing" element = {<Parth/>}/>
+              
+            
 
 
           </Routes>
