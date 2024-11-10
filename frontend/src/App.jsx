@@ -12,6 +12,9 @@ import HealConnectPage from './components/healconnect';
 import ChatBot from './components/ChatBot';
 import Login from './components/Login';
 import FeedbackComponent from './components/feedback';
+import MainLayout from './components/MainLayout';
+import Question from './components/Question';
+import Questionnaire from './components/Quetionerrie';
 
 function App() {
   return (
@@ -36,6 +39,10 @@ function App() {
             <Route path="/chat" element = {<ChatBot/>}/>
             {/* <Route path="/login-signup" element = {<Login/>}/> */}
             <Route path="/feedback" element = {<FeedbackComponent/>}/>
+
+            <Route path="/planner" element = {<MainLayout/>}/>
+            <Route path="/symptom-checker" element = {<Questionnaire/>}/>
+
 
           </Routes>
         </div>
