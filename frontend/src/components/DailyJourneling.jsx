@@ -13,7 +13,7 @@ function DailyJournaling() {
 
   return (
     <div className="bg-primary text-white p-8 rounded-lg shadow-md">
-      <h2 className="text-lg font-bold mb-2">Daily Journaling</h2>
+      <h2 className="text-lg font-bold mb-2 text-white">Daily Journaling</h2>
       <textarea
         className="w-full p-2 text-black rounded-md"
         placeholder="Write about your day..."

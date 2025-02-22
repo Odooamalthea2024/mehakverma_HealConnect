@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*") // Allow CORS for this method
+@CrossOrigin(origins = "*") 
 @RequestMapping("/api/comments")
 public class CommentController {
 

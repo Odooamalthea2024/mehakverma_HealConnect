@@ -7,11 +7,6 @@ const questions = [
   "Felt nervous and 'stressed'?",
   "Felt underconfident about your ability to handle your personal problems?",
   "Felt that things were not going your way?",
-  "Found that you could NOT cope with all the things you had to do?",
-  "Unable to control irritations in your life?",
-  "Felt that you were NOT able to get things right?",
-  "Been angered because of things that happened that were out of your control?",
-  "Felt difficulties were piling up so high that you could not overcome them?"
 ];
 
 const options = [
@@ -79,13 +74,13 @@ const Questionnaire = () => {
     let stressLevel;
     let imageUrl;
 
-    if (score >= 30) {
+    if (score >= 15) {
       stressLevel = "Highly Stressed";
       imageUrl = 'highlystress-removebg-preview.png'; // Replace with actual image path
-    } else if (score > 20) {
+    } else if (score > 10) {
       stressLevel = "Moderately Stressed";
       imageUrl = 'moderately-removebg-preview.png'; // Replace with actual image path
-    } else if (score > 10) {
+    } else if (score > 8) {
       stressLevel = "Slightly Stressed";
       imageUrl = 'less-removebg-preview.png'; // Replace with actual image path
     } else {

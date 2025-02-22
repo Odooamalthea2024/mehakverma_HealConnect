@@ -20,11 +20,12 @@ import Parth from './components/Comfort';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import BuyNowModal from './components/paymentGateway';
+import ChatApp from './components/ChatRoom';
 
 // Component to handle redirection
 const RedirectToGoogle = () => {
     useEffect(() => {
-        window.location.href = 'http://127.0.0.1:5500/mehakverma_HealConnect/anonymous-forum-frontend/index.html';
+        window.location.href = 'https://hack-the-chain-ayurveda.vercel.app/';
     }, []);
 
     return null; // Render nothing as this component is just for redirection
@@ -59,7 +60,10 @@ function App() {
                         <Route path="/interactive-healing" element={<Parth />} />
                         <Route path="/payment" element={<BuyNowModal />} />
                         {/* Redirect to Google on /parth */}
-                        <Route path="/parth" element={<RedirectToGoogle />} />
+                        <Route path="/ayurveda" element={<RedirectToGoogle />} />
+                        {/* <Route path="/room" element={<ChatApp />} /> */}
+                        <Route path="/community" element={<ChatApp />} />
+
                     </Routes>
                 </div>
             </Router>

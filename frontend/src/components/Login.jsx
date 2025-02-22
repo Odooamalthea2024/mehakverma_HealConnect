@@ -113,6 +113,11 @@ const Login = () => {
               placeholder="Password"
               className="w-full p-3 mb-6 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-[#006953] transition-all"
             />
+            <input
+              type="number"
+              placeholder="Mobile No."
+              className="w-full p-3 mb-4 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-[#006953] transition-all"
+            />
             <button
               type="button"
               onClick={handleSignUp}  // Trigger redirect on sign up
@@ -130,7 +135,7 @@ const Login = () => {
           }`}
         >
           <div className="flex flex-col items-center justify-center p-12 text-center">
-            <h1 className="text-3xl font-bold mb-4">
+            <h1 className="text-3xl font-bold mb-4 text-white">
               {isActive ? "Hello!" : "Welcome Back!"}
             </h1>
             <p className="mb-6">

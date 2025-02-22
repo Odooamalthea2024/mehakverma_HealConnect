@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Community Forum</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        #chat-container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        #messages {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: #fff;
+        }
+        #input-container {
+            margin-top: 10px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <h2>Anonymous Community Forum</h2>
+        <div id="join-chat">
+            <input type="text" id="username" placeholder="Enter display name">
+            <button onclick="setUsername()">Join Chat</button>
+        </div>
+        <div id="chat" style="display:none;">
+            <div id="messages"></div>
+            <div id="input-container">
+                <input type="text" id="message" placeholder="Type your message">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script>
+        const socket = io("http://localhost:3000");
+        let username = "";
+
+        function setUsername() {
+            const inputUsername = document.getElementById("username").value.trim();
+            if (inputUsername) {
+                username = inputUsername; // Ensure username is assigned after checking input
+                document.getElementById("join-chat").style.display = "none";
+                document.getElementById("chat").style.display = "block";
+            }
+        }
+
+        function sendMessage() {
+            const message = document.getElementById("message").value.trim();
+            if (message && username) {
+                socket.emit("chat message", { user: username, message: message });
+                document.getElementById("message").value = "";
+            }
+        }
+
+        socket.on("chat message", (data) => {
+            const messageDiv = document.createElement("div");
+            messageDiv.innerHTML = `<strong>${data.user}:</strong> ${data.message}`;
+            document.getElementById("messages").appendChild(messageDiv);
+        });
+    </script>
+</body>
+</html>

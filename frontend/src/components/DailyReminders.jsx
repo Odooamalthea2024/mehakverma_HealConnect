@@ -26,7 +26,7 @@ const reminders = [
 const DailyReminders = () => {
   return (
     <div className="bg-primary text-white p-8 rounded-lg shadow-md">
-      <h2 className="text-lg font-bold mb-2">Daily Reminders</h2>
+      <h2 className="text-lg font-bold mb-2 text-white">Daily Reminders</h2>
       {reminders.map((item) => (
         <div key={item.id} style={styles.reminderItem}>
           <input type="checkbox" id={`reminder-${item.id}`} style={styles.checkbox} />
