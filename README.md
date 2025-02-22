@@ -1,5 +1,7 @@
 # HealConnect
 
+video link - https://drive.google.com/drive/folders/14Cwfk-ZrbN_zQWk4p7GlV7iO_Zw64FQU
+
 ### Connecting Minds, Elevating Wellness
 
 HealConnect is a comprehensive platform designed to improve mental health accessibility, engagement, and continuity of care, especially for individuals in underserved areas. By integrating tools like virtual health camps, personalized mental health chatbots, mood tracking, and community forums, HealConnect aims to provide a user-friendly, holistic solution to mental health support.
@@ -97,7 +99,7 @@ HealConnect is designed using the **MVC pattern** for separation of concerns:
 - **Parth Sharma** - Developer
 - **Vaibhav Lachhwani** - Developer
 - **Mehak Verma** - Project Manager
-- **Anshika Gochar** - UI/UX Designer
+- **Anshika Gochar** - UI/UX Designer,Frontend 
 
 ---
 
